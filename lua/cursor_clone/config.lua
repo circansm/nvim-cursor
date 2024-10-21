@@ -14,16 +14,15 @@ M.defaults = {
     enable_auto_lint = false,
     tab_completion = true,
     natural_language_editing = true,
-    -- Keybindings
     keybindings = {
-        start_ai_assistant = "<leader>ca",
-        explain_code = "<leader>ce",
-        generate_code = "<leader>cg",
-        understand_codebase = "<leader>cu",
-        create_new_project = "<leader>cn",
-        auto_debug_and_lint = "<leader>cd",
-        natural_language_edit = "<leader>cl",
-    },
+        start_ai_assistant = { key = "<leader>ca", desc = "Start AI assistant" },
+        explain_code = { key = "<leader>ce", desc = "Explain selected code" },
+        generate_code = { key = "<leader>cg", desc = "Generate code" },
+        understand_codebase = { key = "<leader>cu", desc = "Understand current codebase" },
+        create_new_project = { key = "<leader>cn", desc = "Create a new project" },
+        auto_debug_and_lint = { key = "<leader>cd", desc = "Auto debug and lint" },
+        natural_language_edit = { key = "<leader>cl", desc = "Edit using natural language"
+    },   -- Keybindings
 }
 
 -- Setup function to initialize the plugin with user-provided options
