@@ -63,6 +63,41 @@ If you're not using a plugin manager, you can manually install the plugin:
 
 For detailed configuration options, please refer to the [Configuration](docs/CONFIGURATION.md) documentation.
 
+### Default Keybindings
+
+Nvim-Cursor comes with the following default keybindings:
+
+- `<leader>ca`: Start AI assistant
+- `<leader>ce`: Explain selected code
+- `<leader>cg`: Generate code
+- `<leader>cu`: Understand current codebase
+- `<leader>cn`: Create a new project
+- `<leader>cd`: Auto debug and lint
+- `<leader>cl`: Edit using natural language
+
+### Modifying Default Keybindings
+
+You can modify the default keybindings in your Neovim configuration file. Here's an example of how to change the keybinding for starting the AI assistant:
+
+```lua
+require("cursor_clone").setup({
+  keybindings = {
+    start_ai_assistant = "<leader>ai",  -- Changed from <leader>ca to <leader>ai
+    -- Other keybindings remain unchanged
+  }
+})
+```
+
+### Adding Custom Keybindings
+
+To add custom keybindings, you can use Neovim's `vim.keymap.set` function in your `init.lua` file. Here's an example:
+
+```lua
+vim.keymap.set('n', '<leader>cc', require('cursor_clone').start_ai_assistant, { desc = "Start CursorClone AI Assistant" })
+```
+
+This adds a new keybinding `<leader>cc` in normal mode to start the AI assistant.
+
 ## Usage
 
 For information on how to use Nvim-Cursor, please see the [Usage Guide](docs/USAGE.md).
