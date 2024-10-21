@@ -37,7 +37,7 @@ Add the following to your Neovim configuration (usually in `~/.config/nvim/init.
 }
 ```
 
-Note: The plugin is named "nvim-cursor" in the repository, but the Lua module is named "cursor_clone".
+Note: The repository is named "nvim-cursor", but the Lua module is named "cursor_clone".
 
 ### Manual Installation
 
@@ -59,53 +59,16 @@ If you're not using a plugin manager, you can manually install the plugin:
 
 ## Configuration
 
-Here are the available configuration options:
+For detailed configuration options, please refer to the [Configuration](docs/CONFIGURATION.md) documentation.
 
-```lua
-{
-    ai_provider = "openai",  -- AI provider to use ("openai" or "anthropic")
-    ai_model = "gpt-3.5-turbo",  -- AI model to use (e.g., "gpt-3.5-turbo" for OpenAI, "claude-2" for Anthropic)
-    temperature = 0.7,  -- AI response temperature
-    max_tokens = 1000,  -- Maximum tokens for AI response
-    openai_api_key = nil,  -- Your OpenAI API key (required if using OpenAI)
-    anthropic_api_key = nil,  -- Your Anthropic API key (required if using Anthropic)
-    chat_window_type = "split",  -- "split" or "floating"
-    symbol_reference_depth = "file",  -- "file" or "project"
-    enable_auto_debug = false,  -- Enable auto debugging
-    enable_auto_lint = false,  -- Enable auto linting
-    tab_completion = true,  -- Enable AI-powered tab completion
-    natural_language_editing = true,  -- Enable natural language editing
-}
-```
+## Usage
 
-## Keybindings
+For information on how to use Nvim-Cursor, please see the [Usage Guide](docs/USAGE.md).
 
-The default keybindings are:
+## Contributing
 
-- `<leader>ca`: Start AI assistant
-- `<leader>ce`: Explain selected code
-- `<leader>cg`: Generate code
-- `<leader>cu`: Understand codebase
-- `<leader>cn`: Create new AI project
-- `<leader>cd`: Auto debug and lint
-- `<leader>cl`: Natural language editing
-
-To modify these keybindings, you can add your own keymaps in your Neovim configuration:
-
-```lua
-vim.api.nvim_set_keymap('n', '<your-key>', ':CursorCloneAI<CR>', { noremap = true, silent = true })
-```
-
-Replace `<your-key>` with your preferred key combination and `CursorCloneAI` with the desired command.
-
-## Troubleshooting
-
-If you encounter any issues with the plugin not loading correctly, ensure that:
-
-1. The plugin is installed in the correct directory (`~/.local/share/nvim/site/pack/plugins/start/nvim-cursor` for manual installation).
-2. You're using `require("cursor_clone")` in your configuration, not `require("nvim-cursor")`.
-3. All dependencies, especially Plenary.nvim, are installed and loaded correctly.
+Contributions are welcome! Please see our [Contributing Guidelines](CONTRIBUTING.md) for more details.
 
 ## License
 
-[MIT License](LICENSE)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
