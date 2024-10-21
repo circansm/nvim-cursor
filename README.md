@@ -23,7 +23,8 @@ Add the following to your Neovim configuration:
   "yourusername/cursor_clone",
   config = function()
     require("cursor_clone").setup({
-      api_key = "your_openai_api_key_here",
+      openai_api_key = "your_openai_api_key_here",  -- If using OpenAI
+      anthropic_api_key = "your_anthropic_api_key_here",  -- If using Anthropic
       -- Add any other configuration options here
     })
   end,
