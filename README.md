@@ -1,6 +1,6 @@
-# Cursor Clone
+# Nvim-Cursor
 
-Cursor Clone is a Neovim plugin that provides AI-powered coding assistance, including code explanation, generation, and more.
+Nvim-Cursor is a Neovim plugin that provides AI-powered coding assistance, including code explanation, generation, and more.
 
 ## Features
 
@@ -24,7 +24,7 @@ Add the following to your Neovim configuration (usually in `~/.config/nvim/init.
 
 ```lua
 {
-  "yourusername/cursor_clone",
+  "circansm/nvim-cursor",
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
     require("cursor_clone").setup({
@@ -37,11 +37,25 @@ Add the following to your Neovim configuration (usually in `~/.config/nvim/init.
 }
 ```
 
-Make sure to replace `"yourusername"` with your actual GitHub username.
+Note: The plugin is named "nvim-cursor" in the repository, but the Lua module is named "cursor_clone".
 
 ### Manual Installation
 
-This method is not recommended when using lazy.nvim. Please use the lazy.nvim method above.
+If you're not using a plugin manager, you can manually install the plugin:
+
+1. Clone the repository:
+   ```
+   git clone https://github.com/circansm/nvim-cursor.git ~/.local/share/nvim/site/pack/plugins/start/nvim-cursor
+   ```
+
+2. Ensure that Plenary.nvim is also installed.
+
+3. Add the following to your Neovim configuration:
+   ```lua
+   require("cursor_clone").setup({
+     -- Your configuration options here
+   })
+   ```
 
 ## Configuration
 
@@ -83,6 +97,14 @@ vim.api.nvim_set_keymap('n', '<your-key>', ':CursorCloneAI<CR>', { noremap = tru
 ```
 
 Replace `<your-key>` with your preferred key combination and `CursorCloneAI` with the desired command.
+
+## Troubleshooting
+
+If you encounter any issues with the plugin not loading correctly, ensure that:
+
+1. The plugin is installed in the correct directory (`~/.local/share/nvim/site/pack/plugins/start/nvim-cursor` for manual installation).
+2. You're using `require("cursor_clone")` in your configuration, not `require("nvim-cursor")`.
+3. All dependencies, especially Plenary.nvim, are installed and loaded correctly.
 
 ## License
 
