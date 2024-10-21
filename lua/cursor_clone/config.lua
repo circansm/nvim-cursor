@@ -5,6 +5,12 @@ M.defaults = {
     ai_model = "gpt-3.5-turbo",
     max_tokens = 1000,
     api_key = nil,  -- User should provide their own API key
+    chat_window_type = "split",  -- or "floating"
+    symbol_reference_depth = "file",  -- or "project"
+    enable_auto_debug = false,
+    enable_auto_lint = false,
+    tab_completion = true,
+    natural_language_editing = true,
 }
 
 function M.setup(opts)

@@ -18,5 +18,21 @@ vim.api.nvim_create_user_command("CursorCloneGenerate", function()
     cursor_clone.generate_code()
 end, {})
 
+vim.api.nvim_create_user_command("CursorCloneUnderstand", function()
+    cursor_clone.understand_codebase()
+end, {})
+
+vim.api.nvim_create_user_command("CursorCloneNewProject", function()
+    cursor_clone.create_new_project()
+end, {})
+
+vim.api.nvim_create_user_command("CursorCloneDebugLint", function()
+    cursor_clone.auto_debug_and_lint()
+end, {})
+
+vim.api.nvim_create_user_command("CursorCloneNaturalEdit", function()
+    cursor_clone.natural_language_edit()
+end, {})
+
 -- Set up the plugin with default options
 cursor_clone.setup()
