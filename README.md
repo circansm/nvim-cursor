@@ -14,6 +14,10 @@ Cursor Clone is a Neovim plugin that provides AI-powered coding assistance, incl
 
 ## Installation
 
+### Dependencies
+
+This plugin requires [Plenary.nvim](https://github.com/nvim-lua/plenary.nvim). Make sure it's installed before proceeding.
+
 ### Using [lazy.nvim](https://github.com/folke/lazy.nvim)
 
 Add the following to your Neovim configuration:
@@ -21,6 +25,7 @@ Add the following to your Neovim configuration:
 ```lua
 {
   "yourusername/cursor_clone",
+  dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
     require("cursor_clone").setup({
       openai_api_key = "your_openai_api_key_here",  -- If using OpenAI
@@ -33,17 +38,24 @@ Add the following to your Neovim configuration:
 
 ### Manual Installation
 
-1. Clone this repository into your Neovim configuration directory:
+1. Ensure Plenary.nvim is installed:
+
+```bash
+git clone https://github.com/nvim-lua/plenary.nvim.git ~/.local/share/nvim/site/pack/packer/start/plenary.nvim
+```
+
+2. Clone this repository into your Neovim configuration directory:
 
 ```bash
 git clone https://github.com/yourusername/cursor_clone.git ~/.config/nvim/pack/plugins/start/cursor_clone
 ```
 
-2. Add the following to your Neovim configuration file (usually `~/.config/nvim/init.lua`):
+3. Add the following to your Neovim configuration file (usually `~/.config/nvim/init.lua`):
 
 ```lua
 require('cursor_clone').setup({
-    api_key = "your_openai_api_key_here",
+    openai_api_key = "your_openai_api_key_here",  -- If using OpenAI
+    anthropic_api_key = "your_anthropic_api_key_here",  -- If using Anthropic
     -- Add any other configuration options here
 })
 ```
