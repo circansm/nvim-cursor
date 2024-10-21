@@ -34,6 +34,8 @@ Add the following to your Neovim configuration (usually in `~/.config/nvim/init.
       -- Add any other configuration options here
     })
   end,
+  build = ":TSUpdate",
+  commit = "main",
 }
 ```
 
