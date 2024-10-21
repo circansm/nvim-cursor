@@ -2,7 +2,7 @@ local M = {}
 local config = require("cursor_clone.config")
 local utils = require("cursor_clone.utils")
 local curl = require("plenary.curl")
-local json = require("cjson")
+local json = vim.json
 
 -- Add a local variable for the API key
 local api_key = config.options.anthropic_api_key
