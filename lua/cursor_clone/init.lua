@@ -15,6 +15,16 @@ function M.setup(opts)
     vim.api.nvim_set_keymap('n', config.options.keybindings.new_project, ':CursorCloneNewProject<CR>', keymap_opts)
     vim.api.nvim_set_keymap('n', config.options.keybindings.debug_lint, ':CursorCloneDebugLint<CR>', keymap_opts)
     vim.api.nvim_set_keymap('n', config.options.keybindings.natural_edit, ':CursorCloneNaturalEdit<CR>', keymap_opts)
+
+    -- Load the appropriate AI provider module
+    if config.options.ai_provider == "openai" then
+        M.ai_provider = require("cursor_clone.providers.openai")
+    elseif config.options.ai_provider == "anthropic" then
+        M.ai_provider = require("cursor_clone.providers.anthropic")
+    else
+        vim.notify("CursorClone: Invalid AI provider specified. Using OpenAI as default.", vim.log.levels.WARN)
+        M.ai_provider = require("cursor_clone.providers.openai")
+    end
 end
 
 -- Function to start the AI assistant

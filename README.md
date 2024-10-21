@@ -53,10 +53,12 @@ Here are the available configuration options:
 
 ```lua
 {
-    ai_model = "gpt-3.5-turbo",  -- AI model to use
+    ai_provider = "openai",  -- AI provider to use ("openai" or "anthropic")
+    ai_model = "gpt-3.5-turbo",  -- AI model to use (e.g., "gpt-3.5-turbo" for OpenAI, "claude-2" for Anthropic)
     temperature = 0.7,  -- AI response temperature
     max_tokens = 1000,  -- Maximum tokens for AI response
-    api_key = nil,  -- Your OpenAI API key (required)
+    openai_api_key = nil,  -- Your OpenAI API key (required if using OpenAI)
+    anthropic_api_key = nil,  -- Your Anthropic API key (required if using Anthropic)
     chat_window_type = "split",  -- "split" or "floating"
     symbol_reference_depth = "file",  -- "file" or "project"
     enable_auto_debug = false,  -- Enable auto debugging

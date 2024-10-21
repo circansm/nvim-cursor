@@ -2,10 +2,12 @@ local M = {}
 
 M.defaults = {
     -- Default configuration options
-    ai_model = "gpt-3.5-turbo",
+    ai_provider = "openai",  -- or "anthropic"
+    ai_model = "gpt-3.5-turbo",  -- or "claude-2" for Anthropic
     temperature = 0.7,
     max_tokens = 1000,
-    api_key = nil,  -- User should provide their own API key
+    openai_api_key = nil,  -- User should provide their own OpenAI API key
+    anthropic_api_key = nil,  -- User should provide their own Anthropic API key
     chat_window_type = "split",  -- or "floating"
     symbol_reference_depth = "file",  -- or "project"
     enable_auto_debug = false,
@@ -26,8 +28,10 @@ M.defaults = {
 
 function M.setup(opts)
     M.options = vim.tbl_deep_extend("force", {}, M.defaults, opts or {})
-    if not M.options.api_key then
-        vim.notify("CursorClone: API key not set. Please set it in your configuration.", vim.log.levels.WARN)
+    if M.options.ai_provider == "openai" and not M.options.openai_api_key then
+        vim.notify("CursorClone: OpenAI API key not set. Please set it in your configuration.", vim.log.levels.WARN)
+    elseif M.options.ai_provider == "anthropic" and not M.options.anthropic_api_key then
+        vim.notify("CursorClone: Anthropic API key not set. Please set it in your configuration.", vim.log.levels.WARN)
     end
     if type(M.options.max_tokens) ~= "number" or M.options.max_tokens <= 0 then
         vim.notify("CursorClone: Invalid max_tokens value. Using default.", vim.log.levels.WARN)

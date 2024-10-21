@@ -74,11 +74,24 @@ end
 
 -- Function to check if API key is set
 function M.check_api_key()
-    if not config.options.api_key then
-        vim.notify("CursorClone: API key not set. Please set it in your configuration.", vim.log.levels.ERROR)
+    if config.options.ai_provider == "openai" and not config.options.openai_api_key then
+        vim.notify("CursorClone: OpenAI API key not set. Please set it in your configuration.", vim.log.levels.ERROR)
+        return false
+    elseif config.options.ai_provider == "anthropic" and not config.options.anthropic_api_key then
+        vim.notify("CursorClone: Anthropic API key not set. Please set it in your configuration.", vim.log.levels.ERROR)
         return false
     end
     return true
+end
+
+-- Function to get the appropriate API key
+function M.get_api_key()
+    if config.options.ai_provider == "openai" then
+        return config.options.openai_api_key
+    elseif config.options.ai_provider == "anthropic" then
+        return config.options.anthropic_api_key
+    end
+    return nil
 end
 
 return M
