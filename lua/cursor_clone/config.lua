@@ -3,6 +3,7 @@ local M = {}
 M.defaults = {
     -- Default configuration options
     ai_model = "gpt-3.5-turbo",
+    temperature = 0.7,
     max_tokens = 1000,
     api_key = nil,  -- User should provide their own API key
     chat_window_type = "split",  -- or "floating"

@@ -9,10 +9,7 @@ end
 
 -- Function to start the AI assistant
 function M.start_ai_assistant()
-    if not config.options.api_key then
-        vim.notify("CursorClone: API key not set. Cannot start AI assistant.", vim.log.levels.ERROR)
-        return
-    end
+    if not utils.check_api_key() then return end
     local chat_buf = utils.create_chat_window()
     -- TODO: Implement AI chat logic
     vim.api.nvim_buf_set_lines(chat_buf, 0, -1, false, {"AI Assistant started. Type your message here."})
@@ -20,10 +17,7 @@ end
 
 -- Function to explain code
 function M.explain_code()
-    if not config.options.api_key then
-        vim.notify("CursorClone: API key not set. Cannot explain code.", vim.log.levels.ERROR)
-        return
-    end
+    if not utils.check_api_key() then return end
     local content = utils.get_selected_text()
     -- TODO: Implement code explanation logic using content
     utils.show_floating_window("Code explanation placeholder for:\n" .. content)

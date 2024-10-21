@@ -72,4 +72,13 @@ function M.read_file(file_path)
     return content
 end
 
+-- Function to check if API key is set
+function M.check_api_key()
+    if not config.options.api_key then
+        vim.notify("CursorClone: API key not set. Please set it in your configuration.", vim.log.levels.ERROR)
+        return false
+    end
+    return true
+end
+
 return M
