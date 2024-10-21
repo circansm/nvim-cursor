@@ -8,13 +8,9 @@ function M.setup(opts)
     
     -- Set up keybindings
     local keymap_opts = { noremap = true, silent = true }
-    vim.api.nvim_set_keymap('n', config.options.keybindings.start_ai, ':CursorCloneAI<CR>', keymap_opts)
-    vim.api.nvim_set_keymap('n', config.options.keybindings.explain_code, ':CursorCloneExplain<CR>', keymap_opts)
-    vim.api.nvim_set_keymap('n', config.options.keybindings.generate_code, ':CursorCloneGenerate<CR>', keymap_opts)
-    vim.api.nvim_set_keymap('n', config.options.keybindings.understand_codebase, ':CursorCloneUnderstand<CR>', keymap_opts)
-    vim.api.nvim_set_keymap('n', config.options.keybindings.new_project, ':CursorCloneNewProject<CR>', keymap_opts)
-    vim.api.nvim_set_keymap('n', config.options.keybindings.debug_lint, ':CursorCloneDebugLint<CR>', keymap_opts)
-    vim.api.nvim_set_keymap('n', config.options.keybindings.natural_edit, ':CursorCloneNaturalEdit<CR>', keymap_opts)
+    for cmd, key in pairs(config.options.keybindings) do
+        vim.api.nvim_set_keymap('n', key, string.format(":lua require('cursor_clone').%s()<CR>", cmd), keymap_opts)
+    end
 
     -- Load the appropriate AI provider module
     if config.options.ai_provider == "openai" then

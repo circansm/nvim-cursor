@@ -16,13 +16,13 @@ M.defaults = {
     natural_language_editing = true,
     -- Keybindings
     keybindings = {
-        start_ai = "<leader>ca",
+        start_ai_assistant = "<leader>ca",
         explain_code = "<leader>ce",
         generate_code = "<leader>cg",
         understand_codebase = "<leader>cu",
-        new_project = "<leader>cn",
-        debug_lint = "<leader>cd",
-        natural_edit = "<leader>cl",
+        create_new_project = "<leader>cn",
+        auto_debug_and_lint = "<leader>cd",
+        natural_language_edit = "<leader>cl",
     },
 }
 

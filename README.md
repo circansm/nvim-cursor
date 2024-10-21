@@ -20,7 +20,7 @@ This plugin requires [Plenary.nvim](https://github.com/nvim-lua/plenary.nvim). M
 
 ### Using [lazy.nvim](https://github.com/folke/lazy.nvim)
 
-Add the following to your Neovim configuration:
+Add the following to your Neovim configuration (usually in `~/.config/nvim/init.lua`):
 
 ```lua
 {
@@ -28,6 +28,7 @@ Add the following to your Neovim configuration:
   dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
     require("cursor_clone").setup({
+      ai_provider = "openai",  -- or "anthropic"
       openai_api_key = "your_openai_api_key_here",  -- If using OpenAI
       anthropic_api_key = "your_anthropic_api_key_here",  -- If using Anthropic
       -- Add any other configuration options here
@@ -36,29 +37,11 @@ Add the following to your Neovim configuration:
 }
 ```
 
+Make sure to replace `"yourusername"` with your actual GitHub username.
+
 ### Manual Installation
 
-1. Ensure Plenary.nvim is installed:
-
-```bash
-git clone https://github.com/nvim-lua/plenary.nvim.git ~/.local/share/nvim/site/pack/packer/start/plenary.nvim
-```
-
-2. Clone this repository into your Neovim configuration directory:
-
-```bash
-git clone https://github.com/yourusername/cursor_clone.git ~/.config/nvim/pack/plugins/start/cursor_clone
-```
-
-3. Add the following to your Neovim configuration file (usually `~/.config/nvim/init.lua`):
-
-```lua
-require('cursor_clone').setup({
-    openai_api_key = "your_openai_api_key_here",  -- If using OpenAI
-    anthropic_api_key = "your_anthropic_api_key_here",  -- If using Anthropic
-    -- Add any other configuration options here
-})
-```
+This method is not recommended when using lazy.nvim. Please use the lazy.nvim method above.
 
 ## Configuration
 
