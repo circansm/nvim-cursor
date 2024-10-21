@@ -1,3 +1,4 @@
+-- Utility functions for the CursorClone plugin
 local M = {}
 local config = require("cursor_clone.config")
 

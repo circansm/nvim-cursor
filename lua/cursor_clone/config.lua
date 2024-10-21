@@ -26,6 +26,7 @@ M.defaults = {
     },
 }
 
+-- Setup function to initialize the plugin with user-provided options
 function M.setup(opts)
     M.options = vim.tbl_deep_extend("force", {}, M.defaults, opts or {})
     if M.options.ai_provider == "openai" and not M.options.openai_api_key then
